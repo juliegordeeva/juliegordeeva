@@ -1,0 +1,12 @@
+{
+  "name": "site-tilda-2",
+  "private": true,
+  "description": "Executive advisory landing — Юлия Гордеева",
+  "scripts": {
+    "screenshots": "node scripts/screenshot.mjs",
+    "predeploy": "npm run screenshots"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^24.8.2"
+  }
+}
