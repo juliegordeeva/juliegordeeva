@@ -1,1 +1,1 @@
-# Положите сюда portrait.jpg (вертикальный executive portrait, ~480×600 px или больше)
+# portrait.png — фото для первого экрана и Open Graph
