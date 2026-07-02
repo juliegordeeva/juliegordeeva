@@ -1,8 +1,8 @@
 const header = document.getElementById('header');
 const nav = document.getElementById('site-nav');
 const navToggle = document.querySelector('.nav-toggle');
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
+const leadForm = document.getElementById('leadForm');
+const mailtoHint = document.getElementById('mailto-hint');
 
 function closeNav() {
   nav?.classList.remove('is-open');
@@ -35,40 +35,30 @@ navToggle?.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
-contactForm?.addEventListener('submit', (event) => {
+leadForm?.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const data = new FormData(contactForm);
-  const name = data.get('name');
-  const role = data.get('role');
-  const company = data.get('company');
-  const contact = data.get('contact');
-  const request = data.get('request');
-  const format = data.get('format');
-  const consent = data.get('consent');
+  const name = document.getElementById('name')?.value.trim();
+  const phone = document.getElementById('phone')?.value.trim();
+  const email = document.getElementById('email')?.value.trim();
+  const consentPD = document.getElementById('consent-pd')?.checked;
+  const consentNews = document.getElementById('consent-news')?.checked;
 
-  if (!consent) {
-    showFormStatus('Необходимо согласие на обработку персональных данных.', 'error');
+  if (!consentPD) {
+    alert('Пожалуйста, подтвердите согласие на обработку персональных данных.');
     return;
   }
 
-  const subject = encodeURIComponent('Заявка на личную консультацию');
+  const subject = encodeURIComponent('Заявка с сайта radarexec.ru');
   const body = encodeURIComponent(
-    `Имя: ${name}\n` +
-    `Должность: ${role}\n` +
-    `Компания: ${company || '—'}\n` +
-    `Контакт: ${contact}\n` +
-    `Формат: ${format}\n\n` +
-    `Запрос:\n${request}`
+    'Имя: ' + (name || '') + '\n' +
+    'Телефон: ' + (phone || '') + '\n' +
+    'Email: ' + (email || '') + '\n' +
+    'Согласие на рассылку: ' + (consentNews ? 'да' : 'нет') + '\n' +
+    'Дата: ' + new Date().toLocaleString('ru-RU')
   );
 
-  showFormStatus('Открываю почтовый клиент для отправки заявки…', 'success');
-  window.location.href = `mailto:prof@jgordeeva.ru?subject=${subject}&body=${body}`;
-});
+  window.location.href = 'mailto:prof@jgordeeva.ru?subject=' + subject + '&body=' + body;
 
-function showFormStatus(message, type) {
-  if (!formStatus) return;
-  formStatus.textContent = message;
-  formStatus.hidden = false;
-  formStatus.className = `form-status is-${type}`;
-}
+  if (mailtoHint) mailtoHint.style.display = 'block';
+});

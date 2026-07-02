@@ -428,46 +428,40 @@
         <h2>Запросить личную консультацию</h2>
         <p class="section-lead">Опишите ваш управленческий запрос. Если формат консультации подойдёт, мы согласуем время и оптимальный формат работы.</p>
       </header>
-      <form class="contact-form" id="contact-form" novalidate>
+      <form class="contact-form" id="leadForm" novalidate>
         <div class="form-row">
-          <label for="name">Имя</label>
-          <input type="text" id="name" name="name" required autocomplete="name">
+          <input type="text" id="name" name="name" placeholder="Ваше имя" required autocomplete="name">
         </div>
         <div class="form-row">
-          <label for="role">Должность / роль</label>
-          <input type="text" id="role" name="role" required>
+          <input type="tel" id="phone" name="phone" placeholder="Телефон" required autocomplete="tel">
         </div>
         <div class="form-row">
-          <label for="company">Компания / сфера</label>
-          <input type="text" id="company" name="company">
+          <input type="email" id="email" name="email" placeholder="Email" required autocomplete="email">
         </div>
-        <div class="form-row">
-          <label for="contact">Telegram или email</label>
-          <input type="text" id="contact" name="contact" required autocomplete="email">
-        </div>
-        <div class="form-row">
-          <label for="request">Какой запрос хотите обсудить?</label>
-          <textarea id="request" name="request" rows="4" required></textarea>
-        </div>
-        <fieldset class="form-row">
-          <legend>Какой формат интересен?</legend>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="format" value="60 минут" checked> 60 минут</label>
-            <label class="radio-label"><input type="radio" name="format" value="90 минут"> 90 минут</label>
-            <label class="radio-label"><input type="radio" name="format" value="сопровождение"> сопровождение</label>
-            <label class="radio-label"><input type="radio" name="format" value="пока не знаю"> пока не знаю</label>
-          </div>
-        </fieldset>
+
         <div class="form-row form-checkbox">
           <label class="checkbox-label">
-            <input type="checkbox" id="consent" name="consent" required>
-            <span>Я принимаю</span>
-            <a href="consent.html" target="_blank" rel="noopener noreferrer">согласие на обработку персональных данных</a>
+            <input type="checkbox" id="consent-pd" required>
+            <span>
+              Даю согласие на обработку персональных данных в соответствии с
+              <a href="consent.html" target="_blank" rel="noopener noreferrer">Согласием на обработку персональных данных</a>
+              и
+              <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a>
+            </span>
           </label>
         </div>
-        <button class="btn btn-primary btn-block" type="submit">Отправить запрос</button>
-        <p class="form-note">Ответ обычно приходит в течение 1–2 рабочих дней.</p>
-        <p class="form-status" id="form-status" hidden></p>
+
+        <div class="form-row form-checkbox">
+          <label class="checkbox-label">
+            <input type="checkbox" id="consent-news">
+            <span>Хочу получать новости и специальные предложения</span>
+          </label>
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit">Оставить заявку</button>
+        <p class="form-note" id="mailto-hint" style="display:none;">
+          Сейчас откроется ваша почтовая программа с готовым письмом — нажмите «Отправить», чтобы мы получили заявку.
+        </p>
       </form>
       <div class="form-contacts">
         <p>Или напишите напрямую:</p>
