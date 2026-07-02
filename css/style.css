@@ -901,6 +901,19 @@ p {
   color: var(--border);
 }
 
+.policy p {
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+}
+
+.policy h2 {
+  margin-top: 2rem;
+}
+
+.policy-actions {
+  margin-top: 2.5rem;
+}
+
 @media (max-width: 1100px) {
   .proof-grid {
     grid-template-columns: repeat(2, 1fr);
