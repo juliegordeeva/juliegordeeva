@@ -924,6 +924,155 @@ p {
   margin-top: 2.5rem;
 }
 
+.lang-switch {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  cursor: default;
+  user-select: none;
+}
+
+.lang-switch .lang-soon {
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.radar-ru {
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.stat {
+  padding: 1.5rem;
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.stat-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.experience-block {
+  margin-top: 3rem;
+}
+
+.block-title {
+  font-size: 1.375rem;
+  margin-bottom: 1.25rem;
+}
+
+.clients-list,
+.facts-list,
+.edu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.875rem;
+}
+
+.clients-list li,
+.facts-list li,
+.edu-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.clients-list li::before,
+.facts-list li::before,
+.edu-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.clients-list strong,
+.edu-list strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.geo-line {
+  color: var(--text-secondary);
+  margin: 0 0 1.25rem;
+  max-width: 720px;
+}
+
+.geo-line strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.ecosystem-card {
+  display: block;
+  padding: 2rem;
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.ecosystem-card:hover {
+  border-color: rgba(107, 30, 45, 0.3);
+  transform: translateY(-4px);
+}
+
+.ecosystem-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.ecosystem-card p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem;
+}
+
+.ecosystem-link {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
 @media (max-width: 1100px) {
   .proof-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -948,6 +1097,14 @@ p {
 
   .experience-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
   }
 
   .formats-grid {
@@ -1061,7 +1218,17 @@ p {
 
   .experience-grid,
   .radar-grid,
-  .proof-grid {
+  .proof-grid,
+  .stats-row {
     grid-template-columns: 1fr;
+  }
+
+  .lang-switch {
+    display: none;
+  }
+
+  .radar-ru {
+    white-space: normal;
+    display: block;
   }
 }
