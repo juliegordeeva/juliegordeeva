@@ -1,0 +1,104 @@
+[
+  {
+    "viewport": "360",
+    "overflowX": false,
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "fontBody": 16,
+    "h1": "Помогаю руководителям принимать сложные решения и сохранять устойчивость, когда рынок нестабилен",
+    "smallTouch": [],
+    "cookie": false,
+    "lang": "RU",
+    "casesHidden": true,
+    "menuLinks": [
+      "Запросы",
+      "Метод",
+      "Опыт",
+      "Форматы",
+      "FAQ",
+      "Запросить консультацию"
+    ],
+    "menuClosedAfterClick": true
+  },
+  {
+    "viewport": "390",
+    "overflowX": false,
+    "scrollWidth": 390,
+    "innerWidth": 390,
+    "fontBody": 16,
+    "h1": "Помогаю руководителям принимать сложные решения и сохранять устойчивость, когда рынок нестабилен",
+    "smallTouch": [],
+    "cookie": false,
+    "lang": "RU",
+    "casesHidden": true,
+    "menuLinks": [
+      "Запросы",
+      "Метод",
+      "Опыт",
+      "Форматы",
+      "FAQ",
+      "Запросить консультацию"
+    ],
+    "menuClosedAfterClick": true
+  },
+  {
+    "viewport": "414",
+    "overflowX": false,
+    "scrollWidth": 414,
+    "innerWidth": 414,
+    "fontBody": 16,
+    "h1": "Помогаю руководителям принимать сложные решения и сохранять устойчивость, когда рынок нестабилен",
+    "smallTouch": [],
+    "cookie": false,
+    "lang": "RU",
+    "casesHidden": true,
+    "menuLinks": [
+      "Запросы",
+      "Метод",
+      "Опыт",
+      "Форматы",
+      "FAQ",
+      "Запросить консультацию"
+    ],
+    "menuClosedAfterClick": true
+  },
+  {
+    "viewport": "768",
+    "overflowX": false,
+    "scrollWidth": 768,
+    "innerWidth": 768,
+    "fontBody": 18,
+    "h1": "Помогаю руководителям принимать сложные решения и сохранять устойчивость, когда рынок нестабилен",
+    "smallTouch": [],
+    "cookie": false,
+    "lang": "RU",
+    "casesHidden": true,
+    "menuLinks": [
+      "Запросы",
+      "Метод",
+      "Опыт",
+      "Форматы",
+      "FAQ",
+      "Запросить консультацию"
+    ],
+    "menuClosedAfterClick": true
+  },
+  {
+    "viewport": "768-land",
+    "overflowX": false,
+    "scrollWidth": 1024,
+    "innerWidth": 1024,
+    "fontBody": 18,
+    "h1": "Помогаю руководителям принимать сложные решения и сохранять устойчивость, когда рынок нестабилен",
+    "smallTouch": [
+      {
+        "tag": "nav-toggle",
+        "w": 0,
+        "h": 0
+      }
+    ],
+    "cookie": false,
+    "lang": "RU",
+    "casesHidden": true
+  }
+]

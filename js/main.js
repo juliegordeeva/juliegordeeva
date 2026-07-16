@@ -3,11 +3,6 @@ const nav = document.getElementById('site-nav');
 const navToggle = document.querySelector('.nav-toggle');
 const leadForm = document.getElementById('leadForm');
 const formStatus = document.getElementById('form-status');
-
-// TODO(lead-capture): временное решение до Telegram-бота.
-// Вставьте ID формы Formspree (https://formspree.io) вместо REPLACE_WITH_FORM_ID.
-// Пока endpoint не настроен, используется резервная отправка через почтовый клиент.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/REPLACE_WITH_FORM_ID';
 const LEAD_EMAIL = 'prof@jgordeeva.ru';
 
 function closeNav() {
@@ -19,7 +14,7 @@ function closeNav() {
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     const id = link.getAttribute('href');
-    if (id === '#') return;
+    if (id === '#' || !id) return;
 
     const target = document.querySelector(id);
     if (!target) return;
@@ -48,20 +43,8 @@ function setFormStatus(message, type) {
   formStatus.className = 'form-status is-' + type;
 }
 
-function sendViaMailClient(payload) {
-  const subject = encodeURIComponent('Заявка с сайта radarexec.ru');
-  const body = encodeURIComponent(
-    'Имя: ' + payload.name + '\n' +
-    'Телефон: ' + payload.phone + '\n' +
-    'Email: ' + payload.email + '\n' +
-    'Согласие на рассылку: ' + (payload.news ? 'да' : 'нет') + '\n' +
-    'Дата: ' + payload.date
-  );
-  window.location.href = 'mailto:' + LEAD_EMAIL + '?subject=' + subject + '&body=' + body;
-  setFormStatus('Заявка подготовлена. Подтвердите отправку в открывшемся письме — или напишите напрямую в Telegram.', 'success');
-}
-
-leadForm?.addEventListener('submit', async (event) => {
+// mailto — осознанный выбор заказчика (до Telegram-бота).
+leadForm?.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const consentPD = document.getElementById('consent-pd')?.checked;
@@ -70,52 +53,26 @@ leadForm?.addEventListener('submit', async (event) => {
     return;
   }
 
-  const payload = {
-    name: (document.getElementById('name')?.value || '').trim(),
-    phone: (document.getElementById('phone')?.value || '').trim(),
-    email: (document.getElementById('email')?.value || '').trim(),
-    news: !!document.getElementById('consent-news')?.checked,
-    date: new Date().toLocaleString('ru-RU'),
-  };
+  const name = (document.getElementById('name')?.value || '').trim();
+  const phone = (document.getElementById('phone')?.value || '').trim();
+  const email = (document.getElementById('email')?.value || '').trim();
+  const news = !!document.getElementById('consent-news')?.checked;
 
-  if (!payload.name || !payload.phone || !payload.email) {
+  if (!name || !phone || !email) {
     setFormStatus('Заполните имя, телефон и email.', 'error');
     return;
   }
 
-  const submitBtn = leadForm.querySelector('button[type="submit"]');
+  const subject = encodeURIComponent('Заявка с сайта gordeeva.radarexec.ru');
+  const body = encodeURIComponent(
+    'Имя: ' + name + '\n' +
+    'Телефон: ' + phone + '\n' +
+    'Email: ' + email + '\n' +
+    'Согласие на рассылку: ' + (news ? 'да' : 'нет') + '\n' +
+    'Дата: ' + new Date().toLocaleString('ru-RU') + '\n\n' +
+    'Запрос:\n'
+  );
 
-  // Пока Formspree не настроен — резервная отправка через почтовый клиент, данные не теряются.
-  if (FORMSPREE_ENDPOINT.includes('REPLACE_WITH_FORM_ID')) {
-    sendViaMailClient(payload);
-    return;
-  }
-
-  if (submitBtn) submitBtn.disabled = true;
-  setFormStatus('Отправляем заявку…', 'success');
-
-  try {
-    const response = await fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        Имя: payload.name,
-        Телефон: payload.phone,
-        Email: payload.email,
-        'Согласие на рассылку': payload.news ? 'да' : 'нет',
-        Дата: payload.date,
-      }),
-    });
-
-    if (response.ok) {
-      leadForm.reset();
-      setFormStatus('Спасибо! Заявка отправлена — Юлия свяжется с вами в течение 1–2 рабочих дней.', 'success');
-    } else {
-      setFormStatus('Не удалось отправить заявку. Данные сохранены — попробуйте ещё раз или напишите в Telegram.', 'error');
-    }
-  } catch (error) {
-    setFormStatus('Нет связи с сервером. Данные сохранены — попробуйте ещё раз или напишите в Telegram.', 'error');
-  } finally {
-    if (submitBtn) submitBtn.disabled = false;
-  }
+  window.location.href = 'mailto:' + LEAD_EMAIL + '?subject=' + subject + '&body=' + body;
+  setFormStatus('Если почтовый клиент не открылся — напишите на prof@jgordeeva.ru или в Telegram.', 'success');
 });

@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 12px);
 }
 
 body {
@@ -39,6 +40,7 @@ body {
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -283,7 +285,11 @@ p {
 .nav-toggle {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
   padding: 0.5rem;
   background: none;
   border: none;
@@ -817,19 +823,37 @@ p {
 .radio-label,
 .checkbox-label {
   display: flex;
-  align-items: center;
-  gap: 0.625rem;
+  align-items: flex-start;
+  gap: 0.75rem;
   font-size: 0.9375rem;
   text-transform: none;
   letter-spacing: normal;
   color: var(--text);
   cursor: pointer;
+  line-height: 1.45;
 }
 
-.form-note {
+.checkbox-label input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  accent-color: var(--accent);
+}
+
+.form-note,
+.form-fallback {
   font-size: 0.875rem;
   color: var(--text-secondary);
   text-align: center;
+  margin: 0.75rem 0 0;
+  line-height: 1.45;
+}
+
+.form-fallback a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .form-status {
@@ -928,20 +952,100 @@ p {
 
 .lang-switch {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.4rem;
+  align-items: center;
   font-size: 0.8125rem;
-  letter-spacing: 0.04em;
-  color: var(--text);
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
   cursor: default;
   user-select: none;
+  pointer-events: none;
 }
 
 .lang-switch .lang-soon {
-  font-size: 0.6875rem;
-  letter-spacing: 0.04em;
+  display: none;
+}
+
+.is-hidden[hidden] {
+  display: none !important;
+}
+
+.experience-accordion {
+  margin-top: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card-alt);
+  padding: 0 1.5rem 1.5rem;
+}
+
+.experience-accordion > summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 1.0625rem;
+  padding: 1.25rem 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.experience-accordion > summary::-webkit-details-marker {
+  display: none;
+}
+
+.experience-accordion > summary::after {
+  content: "+";
+  margin-left: auto;
+  color: var(--accent);
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+
+.experience-accordion[open] > summary::after {
+  content: "−";
+}
+
+.experience-accordion .experience-block:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.case-card {
+  padding: 1.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.case-meta {
+  font-size: 0.8125rem;
   color: var(--text-secondary);
-  opacity: 0.7;
+  margin: 0 0 0.75rem;
+}
+
+.case-request {
+  font-size: 1.125rem;
+  margin: 0 0 0.75rem;
+}
+
+.case-action,
+.case-result {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.75rem;
+}
+
+.case-quote {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  font-style: italic;
 }
 
 .radar-ru {
@@ -1141,7 +1245,8 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .ecosystem-grid {
+  .ecosystem-grid,
+  .cases-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1225,7 +1330,14 @@ p {
 
   .nav a:not(.btn) {
     padding: 0.875rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     border-bottom: 1px solid var(--border);
+  }
+
+  .lang-switch {
+    padding: 0.875rem 0;
   }
 
   .nav-cta {
@@ -1259,16 +1371,28 @@ p {
   .proof-grid,
   .stats-row,
   .stats-row-6,
-  .career-grid {
+  .career-grid,
+  .cases-grid {
     grid-template-columns: 1fr;
   }
 
   .lang-switch {
-    display: none;
+    display: inline-flex;
   }
 
   .radar-ru {
     white-space: normal;
     display: block;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    hyphens: manual;
+  }
+
+  .contact-form input,
+  .contact-form button {
+    min-height: 48px;
+    font-size: 16px;
   }
 }
