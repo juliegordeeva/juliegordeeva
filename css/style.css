@@ -256,10 +256,12 @@ p {
 }
 
 .brand-role {
-  font-size: 0.6875rem;
-  letter-spacing: 0.1em;
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-secondary);
+  max-width: 16rem;
+  line-height: 1.35;
 }
 
 .nav {
@@ -956,6 +958,40 @@ p {
   margin-top: 2.5rem;
 }
 
+.stats-row-6 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.career-card {
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.career-years {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.career-card p:last-child {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
 .stat {
   padding: 1.5rem;
   background: var(--bg-card-alt);
@@ -1099,7 +1135,9 @@ p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .stats-row {
+  .stats-row,
+  .stats-row-6,
+  .career-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -1219,7 +1257,9 @@ p {
   .experience-grid,
   .radar-grid,
   .proof-grid,
-  .stats-row {
+  .stats-row,
+  .stats-row-6,
+  .career-grid {
     grid-template-columns: 1fr;
   }
 
