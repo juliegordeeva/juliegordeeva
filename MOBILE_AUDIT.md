@@ -30,7 +30,9 @@
 
 ## Lighthouse Mobile
 
-Файл: `screenshots/audit/lighthouse.report.html` (и `.json`)
+Файл: `docs/audit/lighthouse-mobile.html` (и `.json`)
+Метрики брейкпоинтов: `docs/audit/mobile-metrics.json`
+Локальные скриншоты (не в git): `screenshots/audit/*`
 
 | Category | Score |
 |----------|-------|
