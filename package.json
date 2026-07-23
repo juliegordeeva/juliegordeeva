@@ -4,6 +4,7 @@
   "description": "Executive advisory landing — Юлия Гордеева",
   "scripts": {
     "screenshots": "node scripts/screenshot.mjs",
+    "pdf": "node scripts/build-pdf.mjs",
     "predeploy": "npm run screenshots"
   },
   "devDependencies": {

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Юлия Гордеева — обзор для корпоративной рассылки</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F7F4EF;
+      --card: #FFFFFF;
+      --card-alt: #FDFBF8;
+      --text: #111827;
+      --muted: #4B5563;
+      --accent: #6B1E2D;
+      --teal: #1F3A3D;
+      --border: #D8D2C7;
+      --dark: #111827;
+      --dark-text: #F7F4EF;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: Manrope, system-ui, sans-serif;
+      font-size: 11pt;
+      line-height: 1.45;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+    }
+
+    p { margin: 0 0 0.75rem; }
+    a { color: var(--accent); text-decoration: none; }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 16mm 18mm;
+      page-break-after: always;
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    .eyebrow {
+      font-size: 8.5pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .section-label {
+      font-size: 8pt;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .muted { color: var(--muted); }
+    .small { font-size: 9.5pt; }
+
+    .footer-bar {
+      position: absolute;
+      left: 16mm;
+      right: 16mm;
+      bottom: 10mm;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 8pt;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 6px;
+    }
+
+    /* Cover */
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 14mm;
+      align-items: start;
+      margin-top: 4mm;
+    }
+    .brand-name {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18pt;
+      margin: 0;
+    }
+    .brand-role {
+      font-size: 8.5pt;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2px 0 18px;
+    }
+    .cover h1 {
+      font-size: 22pt;
+      margin-bottom: 12px;
+    }
+    .cover-lead {
+      font-size: 11.5pt;
+      color: var(--muted);
+      max-width: 92%;
+    }
+    .portrait {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 10px;
+      background: #e8e2d8;
+    }
+    .portrait-cap {
+      margin-top: 8px;
+      font-size: 8.5pt;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+    .notice {
+      margin-top: 14mm;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--card);
+      font-size: 9pt;
+      color: var(--muted);
+    }
+    .contacts {
+      margin-top: 8mm;
+      font-size: 10pt;
+    }
+    .contacts strong { color: var(--text); font-weight: 600; }
+
+    .proof {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 10mm;
+    }
+    .proof-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .proof-num {
+      display: block;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18pt;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .proof-card p {
+      margin: 0;
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    /* Cards / lists */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .card.dark {
+      background: var(--dark);
+      border-color: var(--dark);
+      color: var(--dark-text);
+    }
+    .card.teal {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--dark-text);
+    }
+    .card .num {
+      font-size: 8.5pt;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card.dark .num, .card.teal .num { color: #d4a5ae; }
+    .card h3 { font-size: 12pt; margin-bottom: 6px; }
+    .card p { margin: 0; font-size: 9.5pt; color: var(--muted); }
+    .card.dark p, .card.teal p { color: rgba(247,244,239,0.82); }
+
+    .list-num {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .list-num li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      padding: 8px 10px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 10pt;
+    }
+    .list-num .n {
+      font-family: "Playfair Display", Georgia, serif;
+      color: var(--accent);
+      font-size: 13pt;
+      line-height: 1.1;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .step {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .step .n {
+      font-family: "Playfair Display", Georgia, serif;
+      color: var(--accent);
+      font-size: 16pt;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .step h3 { font-size: 10.5pt; }
+    .step p { margin: 0; font-size: 8.5pt; color: var(--muted); }
+
+    .radar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .radar-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .radar-item .letter {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 18pt;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .radar-item h3 { font-size: 11pt; margin-bottom: 2px; }
+    .radar-item .ru { font-weight: 400; color: var(--muted); font-size: 9pt; }
+    .radar-item p { margin: 0; font-size: 9pt; color: var(--muted); }
+
+    .formats .card h3 { font-size: 13pt; }
+    .formats .badge {
+      display: inline-block;
+      font-size: 8pt;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .formats .meta {
+      font-size: 9.5pt;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .formats ul {
+      margin: 8px 0 0;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 9pt;
+    }
+    .formats li { margin: 2px 0; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 8px 0 12px;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .stat .n {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 20pt;
+      color: var(--accent);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .stat p { margin: 0; font-size: 8.5pt; color: var(--muted); }
+
+    .clients { margin: 0; padding-left: 16px; color: var(--muted); font-size: 9.5pt; }
+    .clients li { margin: 4px 0; }
+    .clients strong { color: var(--text); }
+
+    .career {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .career-item {
+      background: var(--card-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .career-item .y {
+      font-size: 8pt;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .career-item p { margin: 0; font-size: 9pt; color: var(--muted); }
+
+    .cta-box {
+      margin-top: 10mm;
+      padding: 14px;
+      background: var(--dark);
+      color: var(--dark-text);
+      border-radius: 10px;
+    }
+    .cta-box h2 { color: var(--dark-text); font-size: 16pt; margin-bottom: 8px; }
+    .cta-box p { color: rgba(247,244,239,0.85); margin-bottom: 10px; }
+    .cta-box .lines { font-size: 11pt; line-height: 1.7; }
+    .cta-box a { color: #e8c4cb; }
+
+    @page { size: A4; margin: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- 01 COVER -->
+  <section class="page cover">
+    <p class="brand-name">Юлия Гордеева</p>
+    <p class="brand-role">Консультант руководителей и топ-команд</p>
+
+    <div class="cover-grid">
+      <div>
+        <p class="eyebrow">Личные консультации для руководителей</p>
+        <h1>Помогаю руководителям принимать сложные решения и сохранять устойчивость, когда рынок нестабилен</h1>
+        <p class="cover-lead">Юлия Гордеева — консультант для собственников и топ-команд. Помогаю принимать сложные управленческие решения, укреплять управленческий стиль, применять ИИ и анализ данных как инструмент развития.</p>
+
+        <div class="contacts">
+          <p><strong>Сайт:</strong> https://gordeeva.radarexec.ru</p>
+          <p><strong>Email:</strong> prof@jgordeeva.ru · <strong>Telegram:</strong> @Prof_jouls</p>
+          <p><strong>LinkedIn:</strong> linkedin.com/in/juliegordeeva</p>
+        </div>
+
+        <div class="notice">
+          Документ для корпоративной рассылки. Полная информация с сайта gordeeva.radarexec.ru — для случаев, когда сеть ограничивает доступ к сайту.
+        </div>
+      </div>
+      <div>
+        <img class="portrait" src="../images/portrait.png" alt="Юлия Гордеева">
+        <p class="portrait-cap">Лидерство · Стратегия · Ответственный ИИ</p>
+      </div>
+    </div>
+
+    <div class="proof">
+      <div class="proof-card">
+        <span class="proof-num">15</span>
+        <p>лет преподавания на программах MBA и магистратуры</p>
+      </div>
+      <div class="proof-card">
+        <span class="proof-num">10+</span>
+        <p>лет управления программами бизнес-образования</p>
+      </div>
+      <div class="proof-card">
+        <span class="proof-num" style="font-size:14pt">RU · EN</span>
+        <p>работа с руководителями на двух языках</p>
+      </div>
+      <div class="proof-card">
+        <span class="proof-num" style="font-size:14pt">4 региона</span>
+        <p>Европа, MENA, Азия, Латинская Америка</p>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Юлия Гордеева · Консультант руководителей и топ-команд</span>
+      <span>01 / Обзор</span>
+    </div>
+  </section>
+
+  <!-- 02 AUDIENCE + REQUESTS -->
+  <section class="page">
+    <p class="section-label">02 / Для кого и с какими запросами</p>
+    <h2>Кому подходит формат стратегического разбора</h2>
+    <p class="muted" style="margin-bottom:12px">Личная консультация и стратегический разбор — когда нужно принять комплексное решение и выбрать траекторию движения внутри структуры или вовне. В том числе для ролей CBDO (Chief Business Development Officer) и PMO (Project Management Office).</p>
+
+    <div class="grid-2" style="margin-bottom:14px">
+      <article class="card">
+        <div class="num">01</div>
+        <h3>Собственники, партнёры, директора холдингов</h3>
+        <p>Отвечают за стратегию, развитие, устойчивость и операционную эффективность структур.</p>
+      </article>
+      <article class="card">
+        <div class="num">02</div>
+        <h3>Руководители команд, подразделений и функций</h3>
+        <p>Выстраивают управление командой и формируют лидерское влияние.</p>
+      </article>
+      <article class="card">
+        <div class="num">03</div>
+        <h3>HRD и лидеры корпоративного развития</h3>
+        <p>Развитие руководителей, кадровый резерв, управленческая культура, PR и GR.</p>
+      </article>
+      <article class="card">
+        <div class="num">04</div>
+        <h3>Эксперты с управленческой ролью</h3>
+        <p>Нужны позиционирование, бизнес-продюсирование и стратегическое продвижение.</p>
+      </article>
+    </div>
+
+    <h2 style="margin-top:6mm">Запросы 2025–2026</h2>
+    <ol class="list-num" style="margin-top:8px">
+      <li><span class="n">01</span><span>Нужно принять сложное управленческое решение, но картина перегружена деталями.</span></li>
+      <li><span class="n">02</span><span>Команда ждёт определённости, а транслировать ей собственную тревогу нельзя.</span></li>
+      <li><span class="n">03</span><span>Нужно усилить личный управленческий стиль и освободиться от микроменеджмента.</span></li>
+      <li><span class="n">04</span><span>Есть запрос на публичность: выступления, Telegram, экспертная позиция, закрытые клубы.</span></li>
+      <li><span class="n">05</span><span>Нужно укрепить позицию эксперта на рынке и снизить зависимость от текущего работодателя.</span></li>
+      <li><span class="n">06</span><span>Нужно применить ИИ и данные в управлении осмысленно, без ловушки лёгкой доступности.</span></li>
+      <li><span class="n">07</span><span>Нужно проявить лидерство в поддержке инноваций и изменений, повести за собой людей.</span></li>
+      <li><span class="n">08</span><span>Нужно подготовиться к стратегической сессии, совету директоров или сложным переговорам.</span></li>
+    </ol>
+
+    <div class="footer-bar">
+      <span>gordeeva.radarexec.ru · Документ для офлайн-рассылки</span>
+      <span>02 / Аудитория и запросы</span>
+    </div>
+  </section>
+
+  <!-- 03 SESSION + RADAR -->
+  <section class="page">
+    <p class="section-label">03 / Сессия и метод</p>
+    <h2>Что вы получаете в личной сессии</h2>
+    <p class="muted">Карьерной, управленческой, стратегической, продюсерской. Структурированный разбор запроса с выходом к дереву решений, плану действий и дорожной карте коммуникаций — два часа сфокусированной работы.</p>
+
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Диагностика</h3><p>Реальная задача: симптом отделяем от причины.</p></div>
+      <div class="step"><span class="n">2</span><h3>Карта контекста</h3><p>Люди, риски, интересы, сроки, альтернативы.</p></div>
+      <div class="step"><span class="n">3</span><h3>РАДАР</h3><p>Стиль решений, коммуникации, воздействие.</p></div>
+      <div class="step"><span class="n">4</span><h3>Сценарии</h3><p>4 сценария, просчёт стратегем.</p></div>
+      <div class="step"><span class="n">5</span><h3>План 30/60/90</h3><p>Шаги, сообщения, точки контроля.</p></div>
+    </div>
+
+    <h2 style="margin-top:10mm">Методология RADAR</h2>
+    <p class="muted">Способ смотреть на управленческую ситуацию через устойчивость, ответственность, подлинность и способность действовать.</p>
+
+    <div class="radar">
+      <div class="radar-item">
+        <span class="letter">R</span>
+        <div>
+          <h3>Resistance <span class="ru">— сопротивление</span></h3>
+          <p>Что в системе сопротивляется изменениям и почему.</p>
+        </div>
+      </div>
+      <div class="radar-item">
+        <span class="letter">A</span>
+        <div>
+          <h3>Antifragility <span class="ru">— антихрупкость</span></h3>
+          <p>Как превращать давление рынка в источник роста.</p>
+        </div>
+      </div>
+      <div class="radar-item">
+        <span class="letter">D</span>
+        <div>
+          <h3>Due care <span class="ru">— осознанная осторожность</span></h3>
+          <p>Решения с вниманием к людям, рискам и последствиям.</p>
+        </div>
+      </div>
+      <div class="radar-item">
+        <span class="letter">A</span>
+        <div>
+          <h3>Authenticity <span class="ru">— подлинность</span></h3>
+          <p>Звучать и действовать в согласии со своей ролью.</p>
+        </div>
+      </div>
+      <div class="radar-item" style="grid-column: 1 / -1">
+        <span class="letter">R</span>
+        <div>
+          <h3>Resilience <span class="ru">— устойчивость</span></h3>
+          <p>Сохранять устойчивость, когда внешний контур нестабилен.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card teal" style="margin-top:10mm">
+      <div class="num">Ответственный ИИ</div>
+      <h3 style="color:#F7F4EF">ИИ как инструмент решений, а не замена мышления</h3>
+      <p>Разбираем, как использовать ИИ и данные для анализа, подготовки решений, процессов и коммуникации — без подмены собственного мышления и без бездумного перебора модных методик.</p>
+    </div>
+
+    <div class="footer-bar">
+      <span>gordeeva.radarexec.ru · Документ для офлайн-рассылки</span>
+      <span>03 / Сессия и RADAR</span>
+    </div>
+  </section>
+
+  <!-- 04 FORMATS -->
+  <section class="page formats">
+    <p class="section-label">04 / Форматы</p>
+    <h2>Форматы личной работы</h2>
+    <p class="muted" style="margin-bottom:12px">Можно прийти с точечным запросом, разобрать сложную ситуацию циклом сессий или взять сопровождение на период изменений.</p>
+
+    <div class="grid-3">
+      <article class="card">
+        <h3>Точечная консультация</h3>
+        <p class="meta">одноразовая встреча, 90 минут</p>
+        <p>Когда нужно быстро разобрать один управленческий запрос, увидеть слепые зоны и определить ближайшие действия.</p>
+        <ul>
+          <li>предварительный короткий бриф</li>
+          <li>90 минут консультации</li>
+          <li>фиксация главных выводов</li>
+          <li>3–5 управленческих шагов</li>
+        </ul>
+      </article>
+      <article class="card" style="border-color: rgba(107,30,45,0.35); box-shadow: inset 0 0 0 1px rgba(107,30,45,0.12)">
+        <span class="badge">Основной формат</span>
+        <h3>Цикл из нескольких сессий</h3>
+        <p class="meta">3–4 встречи по 90 минут</p>
+        <p>Для сложной ситуации: варианты решений, коммуникация и корректировка по обратной связи.</p>
+        <ul>
+          <li>предварительный бриф</li>
+          <li>карта ситуации</li>
+          <li>варианты действий в формате MVP</li>
+          <li>корректировка по результатам ОС</li>
+          <li>план 30/60/90</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Сопровождение</h3>
+        <p class="meta">от 1 месяца</p>
+        <p>Когда руководитель проходит период изменений, готовится к новой роли или усиливает публичность.</p>
+        <ul>
+          <li>3–4 консультации в месяц</li>
+          <li>поддержка между сессиями</li>
+          <li>цифровые помощники для руководителя</li>
+          <li>управленческий стиль</li>
+          <li>личная стратегия и подход к ИИ</li>
+        </ul>
+      </article>
+    </div>
+
+    <h2 style="margin-top:12mm">Как начать работу</h2>
+    <div class="grid-2" style="margin-top:8px">
+      <article class="card">
+        <div class="num">01</div>
+        <h3>Заявка</h3>
+        <p>Письмо или сообщение: роль, контекст и запрос.</p>
+      </article>
+      <article class="card">
+        <div class="num">02</div>
+        <h3>Разбор запроса</h3>
+        <p>Проверяю согласованность истинного и управленческого запроса.</p>
+      </article>
+      <article class="card">
+        <div class="num">03</div>
+        <h3>Формат</h3>
+        <p>90 минут, цикл сессий или сопровождение.</p>
+      </article>
+      <article class="card">
+        <div class="num">04</div>
+        <h3>Консультация</h3>
+        <p>Фокус на решениях, инструментах внедрения и карте возможностей.</p>
+      </article>
+    </div>
+
+    <div class="footer-bar">
+      <span>gordeeva.radarexec.ru · Документ для офлайн-рассылки</span>
+      <span>04 / Форматы</span>
+    </div>
+  </section>
+
+  <!-- 05 EXPERIENCE -->
+  <section class="page">
+    <p class="section-label">05 / Опыт и доказательства</p>
+    <h2>Почему я говорю с руководителями на одном языке систем</h2>
+    <p class="muted">Международный опыт корпоративных программ обучения, MBA, стратегических сессий, развития руководителей и оценки эффективности управленческого обучения.</p>
+
+    <h3 style="font-size:13pt; margin-top:8px">Цифры 2025–2026</h3>
+    <div class="stats">
+      <div class="stat"><span class="n">15</span><p>консультаций высших директоров, подготовка к стратегическим советам</p></div>
+      <div class="stat"><span class="n">16</span><p>проектов бизнес-модели для развития и масштабирования МСП</p></div>
+      <div class="stat"><span class="n">12</span><p>выступлений по операционной эффективности бизнеса</p></div>
+      <div class="stat"><span class="n">14</span><p>циклов карьерного консультирования, в т.ч. международного</p></div>
+      <div class="stat"><span class="n">30+</span><p>управленческих имиджевых пакетов — резюме, портфолио, личный бренд</p></div>
+      <div class="stat"><span class="n">10+</span><p>спродюсированных сценариев личного и корпоративного развития</p></div>
+    </div>
+
+    <h3 style="font-size:13pt">Компании, для руководителей которых велась работа</h3>
+    <p class="muted small">Форматы сотрудничества: образовательные программы для команд и персональный консалтинг отдельных руководителей.</p>
+    <ul class="clients">
+      <li><strong>Leroy Merlin, Decathlon</strong> — развитие руководителей розничных сетей и корпоративные образовательные программы.</li>
+      <li><strong>Danone, Pfizer</strong> — программы развития управленческих команд и стратегические сессии.</li>
+      <li><strong>Porsche, Subaru</strong> — работа с руководителями в автомобильном бизнесе и премиальном сегменте.</li>
+      <li><strong>L'Etoile</strong> — развитие управленческого резерва и наставничества.</li>
+      <li><strong>Представительство ООН в России</strong> — образовательные и экспертные форматы для руководителей.</li>
+    </ul>
+
+    <h3 style="font-size:13pt; margin-top:8mm">Опыт работы</h3>
+    <p class="muted small">С 2021 года роли директора программ ИППК РУДН и партнёра-тренера шли параллельно.</p>
+    <div class="career">
+      <div class="career-item"><div class="y">2004 — 2010</div><p>Заместитель заведующей кафедры иностранных языков РЭУ им. Плеханова</p></div>
+      <div class="career-item"><div class="y">2010 — 2014</div><p>Руководитель англоязычного центра повышения квалификации преподавателей РЭУ им. Плеханова</p></div>
+      <div class="career-item"><div class="y">2014 — 2021</div><p>Заместитель декана IBS Plekhanov, директор корпоративного направления</p></div>
+      <div class="career-item"><div class="y">2021 — 2025</div><p>Директор программ ИППК РУДН — MBA, mini-MBA, корпоративный блок</p></div>
+      <div class="career-item" style="grid-column:1/-1"><div class="y">2021 — н.в.</div><p>Партнёр, ведущий тренер управленческих программ для РЭУ Плеханова, РАНХиГС, ИППК РУДН, Финансового университета, региональных бизнес-школ</p></div>
+    </div>
+
+    <div class="footer-bar">
+      <span>gordeeva.radarexec.ru · Документ для офлайн-рассылки</span>
+      <span>05 / Опыт</span>
+    </div>
+  </section>
+
+  <!-- 06 CONTACT -->
+  <section class="page">
+    <p class="section-label">06 / Контакты</p>
+    <h2>Международный опыт и языки</h2>
+    <p class="muted">Европа · Латинская Америка · MENA · Азия (Китай, Япония). Работа на русском и английском языках. Бизнес-школы-партнёры в ОАЭ, Японии, Китае, Франции, Испании и Нидерландах. Проект по развитию CEO и CEO-1 (Россия — Франция — ОАЭ). Участие в EFMD, ECBE, РАБО.</p>
+
+    <div class="grid-2" style="margin-top:8px; margin-bottom:10mm">
+      <article class="card">
+        <h3>Образование (избранное)</h3>
+        <p style="margin-bottom:6px"><strong>2025/2026</strong> — МГУ, «Креативный продюсер»; Школа продюсирования Николая Картозии</p>
+        <p style="margin-bottom:6px"><strong>2021</strong> — ICF ACC, Erickson International</p>
+        <p style="margin-bottom:6px"><strong>2020</strong> — Московский институт психоанализа, бизнес-консультирование и коучинг</p>
+        <p style="margin-bottom:6px"><strong>2018</strong> — РЭУ Плеханова + Bocconi, MBA «Стратегический менеджмент»</p>
+        <p style="margin:0"><strong>2007 / 2004</strong> — Финуниверситет; МГОУ (лингвист)</p>
+      </article>
+      <article class="card">
+        <h3>Экосистема проектов</h3>
+        <p style="margin-bottom:8px"><strong>Партнёрское бюро</strong> — bureau.radarexec.ru</p>
+        <p style="margin-bottom:8px"><strong>HR-партнёр нового контура</strong> — hr.radarexec.ru</p>
+        <p style="margin:0"><strong>Управленческие гонки</strong> — races.radarexec.ru</p>
+      </article>
+    </div>
+
+    <div class="cta-box">
+      <h2>Обсудим управленческий запрос</h2>
+      <p>Опишите роль, контекст и задачу в свободной форме. Если формат подойдёт — согласуем время и оптимальный формат работы.</p>
+      <div class="lines">
+        Email: <a href="mailto:prof@jgordeeva.ru">prof@jgordeeva.ru</a><br>
+        Telegram: <a href="https://t.me/Prof_jouls">@Prof_jouls</a><br>
+        Сайт: <a href="https://gordeeva.radarexec.ru">https://gordeeva.radarexec.ru</a><br>
+        LinkedIn: <a href="https://www.linkedin.com/in/juliegordeeva">linkedin.com/in/juliegordeeva</a>
+      </div>
+    </div>
+
+    <p class="muted small" style="margin-top:10mm">Консультации проходят в конфиденциальном формате. Часть проектов реализована по соглашению о неразглашении (NDA).</p>
+
+    <div class="footer-bar">
+      <span>Юлия Гордеева · Конфиденциальная работа с управленческими задачами · Документ для офлайн-рассылки</span>
+      <span>06 / Контакты</span>
+    </div>
+  </section>
+
+</body>
+</html>
